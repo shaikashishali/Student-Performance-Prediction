@@ -32,13 +32,13 @@ print(df.dtypes)
 
 # visualization
 
-#scatter plot
-plt.figure(figsize=(7, 4))
+#barchart
 
-plt.scatter(df['Hours Studied'], df['Performance Index'], color='blue', marker='*' )
-plt.title("Hours Studied vs Performance Index")
-plt.xlabel("Hours Studied")
-plt.ylabel("Performance Index")
+plt.bar(df['Hours Studied'], df['Performance Index'])
+
+plt.xlabel('Hours Studied')
+plt.ylabel('Performance Index')
+plt.title('Hours Studied vs Performance Index')
 
 plt.show()
 
@@ -51,13 +51,26 @@ plt.ylabel("Number of Students")
 
 plt.show()
 
-#boxplot
-plt.figure(figsize=(7, 4))
-plt.boxplot(df['Performance Index'])
-plt.title("Performance Index - Box Plot")
-plt.ylabel("Performance Index")
-plt.grid()
+# Pie Chart
+plt.figure(figsize=(7, 7))
+
+plt.pie(df['Performance Index'].value_counts().head(10), labels=df['Performance Index'].value_counts().head(10).index, autopct='%1.1f%%',startangle=90)
+plt.title("Performance Index - Pie Chart")
 plt.show()
+
+# Pie Chart
+plt.figure(figsize=(7, 7))
+
+plt.pie(
+    df['Extracurricular Activities'].value_counts().head(10),
+    labels=df['Extracurricular Activities'].value_counts().head(10).index,
+    autopct='%1.1f%%',
+    startangle=90
+)
+
+plt.title("Extracurricular Activities - Pie Chart")
+plt.show()
+
 
 # Data Preprocessing
 df['Extracurricular Activities'] = df[
@@ -128,7 +141,7 @@ res = obj.predict([sample])
 res = np.clip(res, 0, 100)
 
 print()
-print(f"Model prediction : {int(res)}")
+print(f"Model prediction : {res}")
 
 
 # saving model
