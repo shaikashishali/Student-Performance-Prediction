@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViharaTech | Student Performance Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">V</div>
+            <span>viharatech</span>
+        </div>
+
+        <div class="profile">
+            <div class="profile-avatar">AA</div>
+            <h3>Ashish Ali</h3>
+            <p>Student Developer</p>
+        </div>
+
+        <div class="profile-info">
+            <div class="info-item">
+                <span>Batch</span>
+                <strong>june 29th</strong>
+            </div>
+
+            <div class="info-item">
+                <span>Email</span>
+                <strong>ashishalishaik@gmail.com</strong>
+            </div>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="status-dot"></div>
+            <span>Prediction System Online</span>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <p class="welcome">WELCOME TO VIHARA TECH</p>
+                <h2>Student Performance Prediction</h2>
+            </div>
+
+            <div class="top-badge">
+                <span class="live-dot"></span>
+                ML MODEL ACTIVE
+            </div>
+        </header>
+
+
+        <section class="hero">
+            <div class="hero-text">
+                <span class="tag">MACHINE LEARNING PROJECT</span>
+
+                <h1>Unlock Your<br>
+                    <span>Academic Potential.</span>
+                </h1>
+
+                <p>
+                    Predict your academic performance using machine learning.
+                    Enter your study details and discover your predicted
+                    performance index.
+                </p>
+            </div>
+
+            <div class="hero-graphic">
+                <div class="circle circle-one"></div>
+                <div class="circle circle-two"></div>
+                <div class="chart-icon">📊</div>
+                <div class="floating-card">AI Powered</div>
+            </div>
+        </section>
+
+
+        <section class="prediction-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="tag">PREDICTION PANEL</span>
+                    <h2>Enter Your Details</h2>
+                    <p>Fill in the information below to generate your prediction.</p>
+                </div>
+            </div>
+
+
+            <form action="/predict" method="POST" class="prediction-form">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Hours Studied</label>
+                        <input type="number" name="hours_studied"
+                               min="0" max="24" step="any"
+                               placeholder="e.g. 6" required>
+                        <small>Number of hours spent studying</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Previous Scores</label>
+                        <input type="number" name="previous_scores"
+                               min="0" max="100" step="any"
+                               placeholder="e.g. 85" required>
+                        <small>Your previous academic score</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Extracurricular Activities</label>
+                        <select name="extracurricular" required>
+                            <option value="" disabled selected>Select option</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                        <small>Do you participate in activities?</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Sleep Hours</label>
+                        <input type="number" name="sleep_hours"
+                               min="0" max="24" step="any"
+                               placeholder="e.g. 8" required>
+                        <small>Average hours of sleep per day</small>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Sample Question Papers Practiced</label>
+                        <input type="number" name="sample_papers"
+                               min="0" step="1"
+                               placeholder="e.g. 5" required>
+                        <small>Number of practice question papers completed</small>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="predict-btn">
+                    Predict My Performance
+                    <span>→</span>
+                </button>
+
+            </form>
+
+
+            {% if prediction is not none %}
+            <div class="result-card">
+                <div class="result-icon">🎯</div>
+                <div>
+                    <span class="result-label">YOUR PREDICTED PERFORMANCE INDEX</span>
+                    <h2>{{ prediction }}<small> / 100</small></h2>
+                    <p>Your prediction has been generated successfully!</p>
+                </div>
+            </div>
+            {% endif %}
+
+
+            {% if error %}
+            <div class="error-card">
+                ⚠️ {{ error }}
+            </div>
+            {% endif %}
+
+        </section>
+
+
+        <footer>
+            <p>© 2026 <strong>ViharaTech</strong> | Student Performance Prediction System</p>
+            <span>Built with Machine Learning ❤️</span>
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+</html>
