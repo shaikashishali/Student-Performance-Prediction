@@ -323,20 +323,6 @@ Open that URL to access your Student Performance Prediction application online.
 
 ---
 
-## Conclusion
-
-This project helped me understand how machine learning can be used to solve real-world prediction problems.
-
-By combining Linear Regression with Flask, I created a web application that allows users to predict student performance through a simple interface.
-
-It also gave me practical experience in data preprocessing, model training, model evaluation, Python web development, and deployment.
-
-**Developed by:** Ashish Ali Shaik
-
-**Project:** Student Performance Prediction
-
-**Organization :** ViharaTech
-
 **Visualization Screenshots :**
 
 
@@ -412,5 +398,19 @@ Overall, the model performed well on the test data and was successfully integrat
 
 *Note: The R² score is a regression evaluation metric, not classification accuracy.*
 
+
+## Conclusion
+
+This project helped me understand how machine learning can be used to solve real-world prediction problems.
+
+By combining Linear Regression with Flask, I created a web application that allows users to predict student performance through a simple interface.
+
+It also gave me practical experience in data preprocessing, model training, model evaluation, Python web development, and deployment.
+
+**Developed by:** Ashish Ali Shaik
+
+**Project:** Student Performance Prediction
+
+**Organization :** ViharaTech
 
 
