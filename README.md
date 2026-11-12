@@ -346,5 +346,71 @@ It also gave me practical experience in data preprocessing, model training, mode
 <img width="640" height="480" alt="bar_chart" src="https://github.com/user-attachments/assets/91b37a7e-b207-41c4-a9dc-002608daf47a" />
 
 
+## 7. Model Results and Evaluation
+
+After training and testing the Linear Regression model, the following results were obtained.
+
+### Dataset Summary
+
+| Description | Result |
+|---|---:|
+| Total Records | 10,000 |
+| Total Features | 5 |
+| Target Variable | Performance Index |
+| Training Samples | 8,000 (80%) |
+| Testing Samples | 2,000 (20%) |
+| Missing Values | 0 |
+
+### Model Performance
+
+The model was evaluated using three important regression metrics: R² Score, Mean Squared Error (MSE), and Root Mean Squared Error (RMSE).
+
+| Evaluation Metric | Result |
+|---|---:|
+| R² Score | 0.9881 |
+| R² Score (%) | 98.81% |
+| Mean Squared Error (MSE) | 4.1056 |
+| Root Mean Squared Error (RMSE) | 2.0262 |
+
+### Understanding the Results
+
+- **R² Score (98.81%):** The model explains approximately 98.81% of the variation in the Performance Index on the test dataset.
+- **Mean Squared Error (4.1056):** This measures the average squared difference between actual and predicted values. Lower values indicate better predictions.
+- **Root Mean Squared Error (2.0262):** The model's prediction errors have a root mean squared magnitude of approximately 2.03 Performance Index points.
+
+### Model Verification
+
+To verify the trained model, a sample input was provided:
+
+```python
+sample = [19, 80, 1, 6, 1]
+```
+
+**Input Details:**
+
+| Feature | Value |
+|---|---:|
+| Hours Studied | 19 |
+| Previous Scores | 80 |
+| Extracurricular Activities | Yes (1) |
+| Sleep Hours | 6 |
+| Sample Question Papers Practiced | 1 |
+
+**Predicted Performance Index:**
+
+```text
+[100.]
+```
+
+The model predicted a Performance Index of **100** for the given sample.
+
+### Final Observation
+
+The Linear Regression model achieved an R² score of approximately **98.81%** on the testing dataset, indicating a strong fit to the data. The RMSE of approximately 2.03 also suggests that the model's predictions are close to the actual Performance Index values on average in terms of squared error.
+
+Overall, the model performed well on the test data and was successfully integrated into a Flask web application for interactive student performance prediction.
+
+*Note: The R² score is a regression evaluation metric, not classification accuracy.*
+
 
 
